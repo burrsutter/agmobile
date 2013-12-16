@@ -31,7 +31,8 @@ public class MemberEndpoint
    {
       Member entity = dto.fromDTO(null, em);
       em.persist(entity);
-      return Response.created(UriBuilder.fromResource(MemberEndpoint.class).path(String.valueOf(entity.getId())).build()).build();
+      // return Response.created(UriBuilder.fromResource(MemberEndpoint.class).path(String.valueOf(entity.getId())).build()).build();
+      return Response.created(UriBuilder.fromResource(MemberEndpoint.class).path(String.valueOf(entity.getId())).build()).entity(entity).build();
    }
 
    @DELETE
